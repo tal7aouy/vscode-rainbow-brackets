@@ -1,0 +1,244 @@
+{
+  "name": "rainbow-bracket",
+  "displayName": "Rainbow Brackets",
+  "description": "A customizable extension for colorizing matching brackets and make your code amazing.",
+  "version": "1.0.0",
+  "publisher": "tal7aouy",
+  "engines": {
+    "vscode": "^1.64.0"
+  },
+  "icon": "icon.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "keywords": [
+    "colorizer",
+    "Rainbow Brackets",
+    "Rainbow-Brackets",
+    "Rainbow",
+    "colorizer-bracket",
+    "bracket",
+    "brackets",
+    "pair",
+    "color"
+  ],
+  "galleryBanner": {
+    "color": "#1E1E1E",
+    "theme": "dark"
+  },
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rainbow-brackets.expandBracketSelection",
+        "title": "Expand Bracket Selection"
+      },
+      {
+        "command": "rainbow-brackets.undoBracketSelection",
+        "title": "Undo Bracket Selection"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "RainbowBrackets",
+      "properties": {
+        "RainbowBrackets.timeOut": {
+          "type": "number",
+          "default": 200,
+          "description": "How long the user should idle for, before the document is colorized. Set to 0 to disable",
+          "scope": "resource"
+        },
+        "RainbowBrackets.forceUniqueOpeningColor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Ensure that an opening brackets color does not match a previous brackets color",
+          "scope": "resource"
+        },
+        "RainbowBrackets.forceIterationColorCycle": {
+          "type": "boolean",
+          "default": false,
+          "description": "Should opening brackets iterate the color cycle even if they are not nested",
+          "scope": "resource"
+        },
+        "RainbowBrackets.colorMode": {
+          "type": "string",
+          "enum": [
+            "Consecutive",
+            "Independent"
+          ],
+          "default": "Consecutive",
+          "description": "Should different brackets share a color group (Consecutive), or use their own color group (Independent)",
+          "scope": "resource"
+        },
+        "RainbowBrackets.highlightActiveScope": {
+          "type": "boolean",
+          "default": false,
+          "description": "Should the active scope brackets always be highlighted? Recommended to disable editor.matchBrackets if using this feature.",
+          "scope": "resource"
+        },
+        "RainbowBrackets.activeScopeCSS": {
+          "type": "array",
+          "default": [
+            "borderStyle : solid",
+            "borderWidth : 1px",
+            "borderColor : {color}; opacity: 0.5"
+          ],
+          "description": "CSS for the active scope. Use {color} to match the bracket color. The string types listed at https://code.visualstudio.com/docs/extensionAPI/vscode-api#DecorationRenderOptions can be used",
+          "scope": "resource"
+        },
+        "RainbowBrackets.showBracketsInGutter": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show active bracket scope in gutter?",
+          "scope": "resource"
+        },
+        "RainbowBrackets.showBracketsInRuler": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show active bracket scope in ruler?",
+          "scope": "resource"
+        },
+        "RainbowBrackets.rulerPosition": {
+          "type": "string",
+          "enum": [
+            "Center",
+            "Full",
+            "Left",
+            "Right"
+          ],
+          "default": "Center",
+          "description": "Show active bracket scope in ruler?",
+          "scope": "resource"
+        },
+        "RainbowBrackets.showVerticalScopeLine": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a vertical line on the left side of the editor representing the active bracket scope?",
+          "scope": "resource"
+        },
+        "RainbowBrackets.showHorizontalScopeLine": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a horizontal line to create a block around the active bracket scope?",
+          "scope": "resource"
+        },
+        "RainbowBrackets.scopeLineRelativePosition": {
+          "type": "boolean",
+          "default": true,
+          "description": "True: Scope Line will start from the ending bracket position. False: Scope Line will always be at column 0",
+          "scope": "resource"
+        },
+        "RainbowBrackets.scopeLineCSS": {
+          "type": "array",
+          "default": [
+            "borderStyle : solid",
+            "borderWidth : 1px",
+            "borderColor : {color}; opacity: 0.5"
+          ],
+          "description": "CSS for the scope line. Use {color} to match the bracket color. The string types listed at https://code.visualstudio.com/docs/extensionAPI/vscode-api#DecorationRenderOptions can be used",
+          "scope": "resource"
+        },
+        "RainbowBrackets.consecutivePairColors": {
+          "type": "array",
+          "default": [
+            "()",
+            "[]",
+            "{}",
+            [
+              "teal",
+              "yellow",
+              "tomato"
+            ],
+            "Revioletd"
+          ],
+          "description": "Define paired characters and their shared color group",
+          "scope": "resource"
+        },
+        "RainbowBrackets.independentPairColors": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "type": [
+              "array"
+            ]
+          },
+          "default": [
+            [
+              "()",
+              [
+                "teal",
+                "yellow",
+                "tomato"
+              ],
+              "Revioletd"
+            ],
+            [
+              "[]",
+              [
+                "teal",
+                "yellow",
+                "tomato"
+              ],
+              "Revioletd"
+            ],
+            [
+              "{}",
+              [
+                "teal",
+                "yellow",
+                "tomato"
+              ],
+              "Revioletd"
+            ]
+          ],
+          "description": "Define paired characters and their color groups",
+          "scope": "resource"
+        },
+        "RainbowBrackets.excludedLanguages": {
+          "type": "array",
+          "default": [],
+          "description": "Don't colorize files of these languages",
+          "scope": "window"
+        },
+        "RainbowBrackets.depreciation-notice": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show notice extension is deprecated",
+          "scope": "window"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc  -p ./",
+    "package": "vsce package",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts --fix"
+  },
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^14.x",
+    "@types/prismjs": "^1.26.0",
+    "mocha": "^9.1.3",
+    "eslint": "^8.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "typescript": "^4.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tal7aouy/RainbowBrackets"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/tal7aouy/RainbowBrackets#readme",
+  "dependencies": {
+    "@types/vscode": "^1.64.0",
+    "escape-html": "^1.0.3",
+    "prismjs": "^1.27.0",
+    "vscode-uri": "^1.0.3"
+  }
+}
