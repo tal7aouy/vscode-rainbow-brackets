@@ -18,7 +18,25 @@
 
 ---
 
-## Installation
+- [Supported languages](#supported-languages)
+- [Author's choice](#authors-choice)
+- [Install](#install)
+- [Screenshots](#screenshots)
+- [Settings](#Settings)
+- [Commands](#Commands)
+- [HTML Configuration](#HTML_Configuration)
+- [Release Notes](#CHANGELOG)
+- [Issues Suggestions](#Issues&Suggestions)
+
+## Supported languages
+
+Java, Scala, Clojure, Kotlin, Python, Haskell, Agda, Rust, JavaScript, TypeScript, Erlang, Go, Groovy, Ruby, Elixir, ObjectiveC, PHP, HTML, XML, SQL, Apex language, C#, Dart, Pug/Jade, Bash, Vue.js, C# Razor Pages, GLSL(the OpenGL Shading Language), Go Template, C++, C...
+
+## Author's choice
+
+Rainbow Brackets + Theme + Error Lens +[Monolisa](https://www.monolisa.dev/) (Font)
+
+## install
 
 1. Open the extensions sidebar on Visual Studio Code
 1. Search for **Rainbow Brackets**
@@ -26,7 +44,20 @@
 1. Click Reload to reload your editor
 1. 🌟🌟🌟🌟🌟 Rate five-stars 😃
 
----
+## Screenshots
+
+- Python
+
+![](./images/python.png)
+![](./images/rainbow.png)
+
+- Typescript
+
+![](./images/typescript.png)
+
+- Vue
+
+![](./images/vue.png)
 
 ## Settings
 
@@ -43,13 +74,13 @@ Configure how long the editor should be idle for before updating the document.
 "RainbowBrackets.forceUniqueOpeningColor": true | false
 ```
 
-> ![Disabled](images/forceUniqueOpeningColorDisabled.png 'forceUniqueOpeningColor Disabled') > ![Enabled](images/forceUniqueOpeningColorEnabled.png 'forceUniqueOpeningColor Enabled')
+> ![Disabled](images/forceUniqueOpeningColorDisabled.png "forceUniqueOpeningColor Disabled") > ![Enabled](images/forceUniqueOpeningColorEnabled.png "forceUniqueOpeningColor Enabled")
 
 ```json
 "RainbowBrackets.forceIterationColorCycle": true
 ```
 
-> ![Enabled](images/forceIterationColorCycleEnabled.png 'forceIterationColorCycle Enabled')
+> ![Enabled](images/forceIterationColorCycleEnabled.png "forceIterationColorCycle Enabled")
 
 ### Commands
 
@@ -73,7 +104,7 @@ Quick-start:
 	}
 ```
 
-### HTML Configuration
+### HTML_Configuration
 
 > An example configuration for HTML is:
 
@@ -97,7 +128,7 @@ Quick-start:
 ```
 
 Screenshot:  
-![Screenshot](images/example.png 'Rainbow Brackets')
+![Screenshot](images/example.png "Rainbow Brackets")
 
 ---
 
@@ -109,8 +140,10 @@ By default (), [], and {} are matched, however custom bracket characters can als
 
 ---
 
-## [Release Notes](CHANGELOG.md)
+## [CHANGELOG](CHANGELOG.md)
 
-### Issues & Suggestions
+---
+
+## Issues&Suggestions
 
 For any issues or suggestions, please use [GitHub issues](https://github.com/tal7aouy/RainbowBrackets/issues).
