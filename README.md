@@ -144,6 +144,6 @@ By default (), [], and {} are matched, however custom bracket characters can als
 
 ---
 
-## Issues&Suggestions
+## Issues&Suggestion
 
 For any issues or suggestions, please use [GitHub issues](https://github.com/tal7aouy/RainbowBrackets/issues).
