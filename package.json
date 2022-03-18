@@ -2,7 +2,7 @@
   "name": "rainbow-bracket",
   "displayName": "Rainbow Brackets",
   "description": "A customizable extension for colorizing matching brackets and make your code amazing.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "tal7aouy",
   "engines": {
     "vscode": "^1.64.0"
