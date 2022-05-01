@@ -183,6 +183,7 @@ export default class DocumentDecorationManager {
         return ['markup', 'javascript'];
       case 'xml':
         return ['markup'];
+      case "postcss": return ["css"];
       default:
         return [languageID];
     }
